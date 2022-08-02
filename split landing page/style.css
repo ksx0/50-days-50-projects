@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+:root{
+    --right-bg-color: rgba(236, 80, 80, 0.599);
+    --left-bg-color: rgba(255, 211, 66, 0.5);
+    --right-btn-hover-color: rgba(236, 80, 80, 1);
+    --left-btn-hover-color: rgba(255, 211, 66, 1);
+    --hover-width: 75%;
+    --other-width:25%
+    --speed: 1000ms
+}
+
+
+*{
+    box-sizing:  border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+h1{
+    font-size: 4rem;
+    color: #fff;
+    position: absolute;
+    left:50%;
+    top:10%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.btn{
+    position: absolute;
+    left: 50%;
+    top:30%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    width: 15rem;
+   padding: 1.5rem; 
+    font-size: 2rem;
+    color: #fff;
+    border: #fff solid 0.2rem;
+    font-family: 'Roboto';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.split.left .btn:hover{
+    background-color: var(--left-btn-hover-color);
+    border-color: var(--left-btn-hover-color);
+    /* transition: transform 0.2s ease ; */
+}
+
+.split.right .btn:hover{
+    background-color: var(--right-btn-hover-color);
+    border-color: var(--right-btn-hover-color);
+    /* transition: transform 0.2s ease ; */
+}
+.hover-left .left{
+    width: var(--hover-width);
+}
+.hover-left .right{
+    width: var(--other-width);
+}
+.hover-right .left{
+    width: var(--other-width);
+}
+.hover-right .right{
+    width: var(--hover-width);
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #333;
+}
+
+.split{
+position: absolute;
+width: 50%;
+height: 100%;
+overflow: hidden;
+}
+
+.split.left{
+    left: 0;
+    background: url('BK.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.split.left::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--left-bg-color);
+}
+
+.split.right{
+    right: 0;
+    background: url('MCD.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.split.right::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--right-bg-color);
+}
+
+.split.right,
+.split.left,
+.split.right::before,
+.split.left::before {
+  transition: all var(--speed) ease;
+}
+
+@media (max-width: 800px) {
+
+    h1{
+        font-size: 1rem;
+        top:30%
+    }
+    .btn{
+        padding: 1.2rem;
+        width: 12rem;
+    }
+}
